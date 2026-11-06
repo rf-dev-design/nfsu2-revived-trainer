@@ -6,7 +6,10 @@
 - Panel opens in the free space between the minimap and the gauges, at any window size
 - New font: Archivo Narrow Italic (SIL OFL 1.1, licence in `fonts-OFL.txt`), embedded because the site's CSP blocks font files
 - New icon in the same style, with a simpler drawing for the 16 and 32 px sizes
-- No changes to hotkeys, settings or the offline-only gate
+- Fixed: Set Bank wrote $0 when the field was empty or not a number (Firefox lets you type letters there)
+- Fixed: the offline-only gate only counted connected friends, not other players in the shared world. It now also checks that the game has left that world, and the panel's always-zero "Players Around" count is gone
+- Firefox is now supported, tested on Firefox 159
+- No changes to hotkeys or settings
 
 ## 2.1.0
 - In-game styled overlay (Underground 2 colours, angled panels, race-style notifications)

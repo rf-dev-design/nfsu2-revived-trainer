@@ -11,14 +11,14 @@
 
 <p align="center">
   <img alt="Chromium" src="https://img.shields.io/badge/Chromium-supported-46c8ff?style=for-the-badge&logo=googlechrome&logoColor=white">
-  <img alt="Firefox" src="https://img.shields.io/badge/Firefox-experimental-ff9a1f?style=for-the-badge&logo=firefoxbrowser&logoColor=white">
+  <img alt="Firefox" src="https://img.shields.io/badge/Firefox-supported-46c8ff?style=for-the-badge&logo=firefoxbrowser&logoColor=white">
   <img alt="Safari" src="https://img.shields.io/badge/Safari-experimental-ff9a1f?style=for-the-badge&logo=safari&logoColor=white">
   <img alt="Manifest V3" src="https://img.shields.io/badge/Manifest-V3-1b2130?style=for-the-badge">
 </p>
 
 > [!IMPORTANT]
-> **Made specifically for Chromium browsers and [https://nfsu2.xyz/](https://nfsu2.xyz/).**
-> It is built and tested on Chrome-based browsers (Chrome, Edge, Brave, Opera, Vivaldi) and only runs on the nfsu2.xyz browser remake. It does not work with the original PC game or any other port. The Firefox and Safari builds are provided as-is and are untested.
+> **Made specifically for Chromium browsers, Firefox and [https://nfsu2.xyz/](https://nfsu2.xyz/).**
+> It is built and tested on Chrome-based browsers (Chrome, Edge, Brave, Opera, Vivaldi) and Firefox, and only runs on the nfsu2.xyz browser remake. It does not work with the original PC game or any other port. The Safari build is provided as-is and is untested.
 
 <p align="center">
   <img src="docs/panel.png" width="720" alt="The trainer panel over the game, styled in Underground 2 colours">
@@ -58,7 +58,7 @@ The panel (<kbd>F2</kbd>) adds a **bank editor** (set any amount, optional freez
 
 nfsu2.xyz has shared free roam and online races with real people. Boosting through a lobby would ruin it for them, so:
 
-- **Car cheats** (everything except money) only work after you press **Go offline** in the panel, and they switch themselves off the moment another player shows up.
+- **Car cheats** (everything except money) only work after you press **Go offline** in the panel, and they lock again if the game reconnects to the shared world or a friend connects.
 - **Money** works any time, since your bank only affects your own career.
 - When the cheats are off, their keys pass straight through to the game, so nothing interferes with normal play.
 
@@ -73,7 +73,7 @@ Grab the package for your browser from the [**Releases**](../../releases) page.
 3. Click **Load unpacked** and select the folder.
 4. Open [nfsu2.xyz](https://nfsu2.xyz/), start the game, and press <kbd>F2</kbd>.
 
-### Firefox (experimental)
+### Firefox
 
 1. Download `u2-revived-trainer-firefox-vX.Y.Z.xpi`.
 2. Open `about:debugging#/runtime/this-firefox` → **Load Temporary Add-on…** → pick the file.

@@ -1,4 +1,4 @@
-U2 Revived Trainer — Firefox build (experimental)
+U2 Revived Trainer — Firefox build
 
 This build is unsigned, so Firefox loads it as a temporary add-on:
 

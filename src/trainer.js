@@ -61,11 +61,12 @@
   function net() {
     const s = window.__nfsu2?.session;
     if (s !== S.sessionRef) { S.sessionRef = s; S.offlineByUs = false; S.nosInf = false; S.lockSpeed = false; }
-    const n = s?.net; let peers = 0;
-    try { peers = (n?.peers?.() || []).length; } catch {}
-    return { n, peers };
+    const n = s?.net; let peers = 1, linked = true;   // unreadable means not safe: cheats stay locked
+    // peers() only counts connected friends; 'lan online' is 0 only once the shared world is left.
+    try { peers = n.peers().length; linked = n.stats()['lan online'] !== 0; } catch {}
+    return { n, clear: peers === 0 && !linked };
   }
-  const offlineOK = () => { const { n, peers } = net(); return !!n && S.offlineByUs && peers === 0; };
+  const offlineOK = () => { const { n, clear } = net(); return !!n && S.offlineByUs && clear; };
   function needCar() {
     if (!offlineOK()) { toast('F2 · Go Offline First', 2500); return 0; }
     const c = car(); if (!c) toast('Car Not Found', 1800);
@@ -83,7 +84,9 @@
     money: () => { if (!mem()) return; wi32(CASH, 99999999); S.cashFreezeVal = 99999999; toast('Bank: $99,999,999'); render(); },
     cashApply: () => {
       if (!mem()) return;
-      const v = Math.max(0, Math.min(2e9, parseInt($('cashVal').value, 10) || 0));
+      const typed = parseInt($('cashVal').value, 10);   // Firefox allows letters here, which reads as ''
+      if (!Number.isFinite(typed)) return toast('Enter a Number', 1800);
+      const v = Math.max(0, Math.min(2e9, typed));
       wi32(CASH, v); S.cashFreezeVal = v; toast(`Bank Set to ${money(v)}`); render();
     },
     boost: () => { const c = needCar(); if (!c) return; const v = vec(c + VEL), m = len(v); if (m < 0.5) return; const k = Math.min(m * S.boostX, S.maxKmh / 3.6) / m; setVec(c + VEL, v.map(x => x * k)); toast(`Boost ×${S.boostX}`, 700); },
@@ -243,12 +246,12 @@ kbd{display:flex;align-items:center;justify-content:center;min-width:4.9em;paddi
   }
 
   function render() {
-    const attached = mem(), { n, peers } = net(), ok = offlineOK();
+    const attached = mem(), { n } = net(), ok = offlineOK();
     put($('st'), attached ? ['ok', 'Game Attached'] : ['bad', 'Waiting for Game']);
     $('cashNow').textContent = attached ? i32(CASH).toLocaleString('en-US') : '—';
     $('cashFrz').checked = S.cashFreeze;
     put($('netInfo'), !n ? 'Game Not Running'
-      : [ok ? ['ok', 'Offline'] : S.offlineByUs ? ['bad', 'Players Nearby'] : ['bad', 'Online'], ` · Players Around: ${peers}`]);
+      : ok ? [['ok', 'Offline'], ' · Car Cheats On'] : [['bad', 'Online'], ' · Car Cheats Locked']);
     $('offBtn').hidden = !n || S.offlineByUs;
     $('car').className = ok ? '' : 'dis';
     const c = attached ? car() : 0;
