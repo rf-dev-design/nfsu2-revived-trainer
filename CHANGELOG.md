@@ -5,6 +5,7 @@
 - Toasts now use the shape of the game's "now playing" card
 - Panel opens in the free space between the minimap and the gauges, at any window size
 - New font: Archivo Narrow Italic (SIL OFL 1.1, licence in `fonts-OFL.txt`), embedded because the site's CSP blocks font files
+- New icon in the same style, with a simpler drawing for the 16 and 32 px sizes
 - No changes to hotkeys, settings or the offline-only gate
 
 ## 2.1.0
