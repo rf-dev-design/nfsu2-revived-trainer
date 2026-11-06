@@ -107,6 +107,7 @@ It creates `dist/` with one package per browser, plus `SHA256SUMS.txt`. The shar
 
 - **Racer_S**: the original *NFSU2 +10 Trainer*. The key layout and memory offsets come from it.
 - The **[Underground 2 Revived](https://nfsu2.xyz/)** team, for bringing the game to the browser.
+- **[Archivo Narrow](https://github.com/Omnibus-Type/ArchivoNarrow)** by Omnibus-Type, the overlay's font ([SIL OFL 1.1](src/fonts-OFL.txt)).
 
 ## Disclaimer
 

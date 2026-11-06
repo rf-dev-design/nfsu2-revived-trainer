@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.2.0
+- Overlay restyled against screenshots of the running game: lime-framed dialog, grey list rows with key cells, pill buttons and a Bank box modelled on the HUD's
+- Toasts now use the shape of the game's "now playing" card
+- Panel opens in the free space between the minimap and the gauges, at any window size
+- New font: Archivo Narrow Italic (SIL OFL 1.1, licence in `fonts-OFL.txt`), embedded because the site's CSP blocks font files
+- No changes to hotkeys, settings or the offline-only gate
+
 ## 2.1.0
 - In-game styled overlay (Underground 2 colours, angled panels, race-style notifications)
 - New icon

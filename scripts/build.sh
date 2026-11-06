@@ -10,6 +10,7 @@ for target in chromium firefox safari; do
   cp src/trainer.js "$out/"
   cp platform/$target/manifest.json "$out/"
   cp icons/icon-{16,32,48,128}.png "$out/icons/"
+  cp src/fonts-OFL.txt "$out/"
   [ -f "platform/$target/README.txt" ] && cp "platform/$target/README.txt" "$out/"
   (cd "$out" && zip -qr -X "../../dist/u2-revived-trainer-$target-v$VERSION.zip" .)
 done
