@@ -161,6 +161,8 @@ label{cursor:pointer;white-space:nowrap}
 button{height:1.72em;padding:0 1.1em;color:#fff;font:inherit;letter-spacing:inherit;cursor:pointer;white-space:nowrap;
  background:var(--ink);border:.14em solid var(--edge);border-radius:.5em}
 button:hover{color:var(--lime);border-color:var(--select);background:var(--olive)}
+.keys>span.act{cursor:pointer}
+.keys>span.act:hover{color:var(--lime);background:var(--row-hi)}
 button.x{flex:none;width:1.75em;height:1.75em;padding:0;color:#d6d6d4;font-size:1.05em;font-style:normal;line-height:1;background:none;border:.13em solid #bdbdbb;border-radius:50%}
 button.x:hover{color:var(--lime);border-color:var(--select);background:none}
 .ok{color:var(--lime)}.bad{color:var(--orange)}
@@ -178,7 +180,7 @@ kbd{display:flex;align-items:center;justify-content:center;min-width:4.9em;paddi
  clip-path:polygon(calc(var(--c)*.46) 0,calc(var(--t)/.46) 0,calc((var(--t) + var(--s))/.46) calc(var(--s)/.46),100% calc(var(--s)/.46),100% 100%,0 100%,0 calc(var(--c)/.46))}
 .toast.on{opacity:1}
 .p:not([hidden])~.toast{left:calc(var(--pl) + var(--pw) + 1.6vh);transform:none}
-@media (max-aspect-ratio:11/10){:host{--pl:8px;--pw:min(calc(var(--em)*30),calc(100vw - 16px))}.p{max-height:56vh}.p:not([hidden])~.toast{top:60vh;left:50%;transform:translateX(-50%)}}`;
+@media (max-aspect-ratio:7/5),(max-width:960px){:host{--pl:8px;--pw:min(calc(var(--em)*30),calc(100vw - 16px))}.p{max-height:56vh}.p:not([hidden])~.toast{top:60vh;left:50%;transform:translateX(-50%)}}`;
   // Archivo Narrow Italic (SIL OFL 1.1, see fonts-OFL.txt), subset to Latin. The site's CSP (font-src 'self') blocks
   // font URLs and data: URIs, but a FontFace built from bytes needs no fetch. If it ever fails, the CSS stack falls back.
   const FONTS = {
@@ -208,7 +210,7 @@ kbd{display:flex;align-items:center;justify-content:center;min-width:4.9em;paddi
    <kbd>PgDn</kbd><span>Super Brakes</span>
    <kbd>End</kbd><span>Jump <input id="jump" class="s" type="number"></span>
    <kbd>PgUp</kbd><span>Move <input id="phaseM" class="s" type="number"> m Forward</span>
-   <kbd>Ins</kbd><span>Infinite Nitrous <span id="nosSt"></span></span>
+   <kbd>Ins</kbd><span class="act" data-a="nosToggle">Infinite Nitrous · Click or Press <span id="nosSt"></span></span>
    <kbd>Del</kbd><span>Nitrous Refill</span>
    <kbd>O</kbd><span>Bank $99,999,999</span>
    <kbd>Shift 1–9</kbd><span>Save Position</span>
@@ -251,7 +253,7 @@ kbd{display:flex;align-items:center;justify-content:center;min-width:4.9em;paddi
     $('cashNow').textContent = attached ? i32(CASH).toLocaleString('en-US') : '—';
     $('cashFrz').checked = S.cashFreeze;
     put($('netInfo'), !n ? 'Game Not Running'
-      : ok ? [['ok', 'Offline'], ' · Car Cheats On'] : [['bad', 'Online'], ' · Car Cheats Locked']);
+      : ok ? [['ok', 'Offline'], ' · Car Cheats On'] : ['bad', 'Car Cheats Locked']);
     $('offBtn').hidden = !n || S.offlineByUs;
     $('car').className = ok ? '' : 'dis';
     const c = attached ? car() : 0;
@@ -265,6 +267,9 @@ kbd{display:flex;align-items:center;justify-content:center;min-width:4.9em;paddi
   const typing = () => { const a = document.activeElement; return a && (a.tagName === 'INPUT' || a.tagName === 'TEXTAREA' || a.isContentEditable) || !!document.querySelector('dialog[open]'); };
   const swallow = e => { e.preventDefault(); e.stopImmediatePropagation(); };
   const keyMap = { KeyY: 'boost', KeyI: 'instant', PageDown: 'brake', End: 'jump', PageUp: 'phase', Insert: 'nosToggle', Delete: 'nosShort', KeyO: 'money' };
+  const letterMap = { y: 'boost', i: 'instant', o: 'money' };
+  // Latin layouts go by the letter typed (Y is elsewhere on QWERTZ); other alphabets go by key position.
+  const actionFor = e => /^[a-z]$/i.test(e.key || '') ? letterMap[e.key.toLowerCase()] : keyMap[e.code];
   function onKey(e) {
     if (inPanel(e)) { e.stopImmediatePropagation(); return; }
     if (e.code === 'F2') { if (e.type === 'keydown' && !e.repeat) A.toggle(); return swallow(e); }
@@ -272,7 +277,7 @@ kbd{display:flex;align-items:center;justify-content:center;min-width:4.9em;paddi
     const digit = /^Digit([1-9])$/.exec(e.code)?.[1];
     if (digit && (e.shiftKey || e.ctrlKey)) { if (e.type === 'keydown' && !e.repeat) (e.shiftKey ? A.savePos : A.warp)(digit); return swallow(e); }
     if (e.ctrlKey || e.shiftKey) return;
-    const a = keyMap[e.code];
+    const a = actionFor(e);
     if (!a) return;
     if (a === 'money' ? !mem() : !offlineOK()) return;   // when cheats are off, let the key reach the game
     if (e.type === 'keydown' && !e.repeat) A[a]();

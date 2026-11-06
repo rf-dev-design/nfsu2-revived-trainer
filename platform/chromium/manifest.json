@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "U2 Revived Trainer",
   "short_name": "U2 Trainer",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Classic-style trainer for Underground 2 Revived (nfsu2.xyz): bank editor, boost, 200 mph, super brakes, jump, move forward, infinite nitrous, warps. Car cheats work only in offline play.",
   "icons": {
     "16": "icons/icon-16.png",

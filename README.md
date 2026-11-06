@@ -18,7 +18,7 @@
 
 > [!IMPORTANT]
 > **Made specifically for Chromium browsers, Firefox and [https://nfsu2.xyz/](https://nfsu2.xyz/).**
-> It is built and tested on Chrome-based browsers (Chrome, Edge, Brave, Opera, Vivaldi) and Firefox, and only runs on the nfsu2.xyz browser remake. It does not work with the original PC game or any other port. The Safari build is provided as-is and is untested.
+> It is built and tested on Chrome-based browsers (Chrome, Edge, Brave, Opera, Vivaldi) and Firefox, and only runs on the nfsu2.xyz browser remake. It does not work with the original PC game or any other port. The Safari build is experimental and only partly tested.
 
 <p align="center">
   <img src="docs/panel.png" width="720" alt="The trainer panel over the game, styled in Underground 2 colours">
@@ -49,6 +49,8 @@ It keeps the exact key layout of **Racer_S's NFSU2 +10 Trainer** from the mid-20
 | <kbd>F2</kbd> | Show / hide the trainer panel |
 
 The panel (<kbd>F2</kbd>) adds a **bank editor** (set any amount, optional freeze), a **speed lock** (hold the car at a fixed km/h), and live readouts for your bank and speed.
+
+On a MacBook, use <kbd>Fn</kbd>+<kbd>↓</kbd> for PgDn, <kbd>Fn</kbd>+<kbd>↑</kbd> for PgUp, <kbd>Fn</kbd>+<kbd>→</kbd> for End, <kbd>Fn</kbd>+<kbd>Delete</kbd> for Delete and, if needed, <kbd>Fn</kbd>+<kbd>F2</kbd> for F2. There's no Insert key, so click the **Infinite Nitrous** row in the panel instead.
 
 <p align="center">
   <img src="docs/toast.png" width="720" alt="In-game style notification after pressing I">
@@ -81,7 +83,7 @@ Grab the package for your browser from the [**Releases**](../../releases) page.
 
 ### Safari (experimental)
 
-Safari needs extensions wrapped in a macOS app. Download `u2-revived-trainer-safari-vX.Y.Z.zip` and follow the `README.txt` inside (it uses Xcode's `safari-web-extension-converter`). The game itself officially targets Chrome and Firefox, so Safari may not run it at all.
+Safari needs extensions wrapped in a macOS app. Download `u2-revived-trainer-safari-vX.Y.Z.zip` and follow the `README.txt` inside (it uses Xcode's `safari-web-extension-converter`). The game itself officially targets Chrome and Firefox, but it ran in Safari 27.2. So far that test covers the overlay, the online gate, the bank editor, Go Offline and Boost; the other car cheats haven't been run in Safari.
 
 ## How it works
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.2.1
+- Fixed: the panel clipped and showed a horizontal scrollbar in tall or small windows
+- Fixed: Y, I and O now follow the letter on your keyboard, so Y is the key labelled Y on QWERTZ
+- Infinite Nitrous can be toggled by clicking its row, for keyboards with no Insert key
+- The panel no longer says "Online" before Go Offline, since the game may not be connected; it just says "Car Cheats Locked"
+- Safari: partly tested on Safari 27.2 and still experimental, with clearer install steps
+
 ## 2.2.0
 - Overlay restyled against screenshots of the running game: lime-framed dialog, grey list rows with key cells, pill buttons and a Bank box modelled on the HUD's
 - Toasts now use the shape of the game's "now playing" card
