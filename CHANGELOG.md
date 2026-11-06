@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.2.2
+- Shorter extension description, to fit the Chrome Web Store's 132-character limit. No changes to the trainer itself
+
 ## 2.2.1
 - Fixed: the panel clipped and showed a horizontal scrollbar in tall or small windows
 - Fixed: Y, I and O now follow the letter on your keyboard, so Y is the key labelled Y on QWERTZ
