@@ -16,6 +16,10 @@
   <img alt="Manifest V3" src="https://img.shields.io/badge/Manifest-V3-1b2130?style=for-the-badge">
 </p>
 
+<p align="center">
+  <a href="https://chromewebstore.google.com/detail/u2-revived-trainer/geancjngimfnceagkdpnbpjalaibllkd"><img alt="Available in the Chrome Web Store" src="https://img.shields.io/badge/Chrome_Web_Store-Add_to_Chrome-46c8ff?style=for-the-badge&logo=googlechrome&logoColor=white"></a>
+</p>
+
 > [!IMPORTANT]
 > **Made specifically for Chromium browsers, Firefox and [https://nfsu2.xyz/](https://nfsu2.xyz/).**
 > It is built and tested on Chrome-based browsers (Chrome, Edge, Brave, Opera, Vivaldi) and Firefox, and only runs on the nfsu2.xyz browser remake. It does not work with the original PC game or any other port. The Safari build is experimental and only partly tested.
@@ -66,24 +70,33 @@ nfsu2.xyz has shared free roam and online races with real people. Boosting throu
 
 ## Install
 
-Grab the package for your browser from the [**Releases**](../../releases) page.
-
 ### Chromium (Chrome, Edge, Brave, Opera, Vivaldi): recommended
 
-1. Download `u2-revived-trainer-chromium-vX.Y.Z.zip` and unzip it into a folder you'll keep.
+The trainer is now on the **official Chrome Web Store**, so there's no more Developer mode or loading it unpacked:
+
+1. Open [**U2 Revived Trainer on the Chrome Web Store**](https://chromewebstore.google.com/detail/u2-revived-trainer/geancjngimfnceagkdpnbpjalaibllkd) and click **Add to Chrome**.
+2. Open [nfsu2.xyz](https://nfsu2.xyz/), start the game, and press <kbd>F2</kbd>.
+
+Installed from the store, it also updates itself automatically. Edge, Brave, Opera and Vivaldi install it from the same page (Edge asks you to allow extensions from other stores first; Opera needs its *Install Chrome Extensions* add-on).
+
+<details>
+<summary>Prefer to load it manually?</summary>
+
+1. Download `u2-revived-trainer-chromium-vX.Y.Z.zip` from the [**Releases**](../../releases) page and unzip it into a folder you'll keep.
 2. Open `chrome://extensions` (or `edge://extensions`) and switch on **Developer mode**.
 3. Click **Load unpacked** and select the folder.
-4. Open [nfsu2.xyz](https://nfsu2.xyz/), start the game, and press <kbd>F2</kbd>.
+
+</details>
 
 ### Firefox
 
-1. Download `u2-revived-trainer-firefox-vX.Y.Z.xpi`.
+1. Download `u2-revived-trainer-firefox-vX.Y.Z.xpi` from the [**Releases**](../../releases) page.
 2. Open `about:debugging#/runtime/this-firefox` → **Load Temporary Add-on…** → pick the file.
 3. Needs Firefox 128+. Temporary add-ons disappear when Firefox closes.
 
 ### Safari (experimental)
 
-Safari needs extensions wrapped in a macOS app. Download `u2-revived-trainer-safari-vX.Y.Z.zip` and follow the `README.txt` inside (it uses Xcode's `safari-web-extension-converter`). The game itself officially targets Chrome and Firefox, but it ran in Safari 27.2. So far that test covers the overlay, the online gate, the bank editor, Go Offline and Boost; the other car cheats haven't been run in Safari.
+Safari needs extensions wrapped in a macOS app. Download `u2-revived-trainer-safari-vX.Y.Z.zip` from the [**Releases**](../../releases) page and follow the `README.txt` inside (it uses Xcode's `safari-web-extension-converter`). The game itself officially targets Chrome and Firefox, but it ran in Safari 27.2. So far that test covers the overlay, the online gate, the bank editor, Go Offline and Boost; the other car cheats haven't been run in Safari.
 
 ## How it works
 
